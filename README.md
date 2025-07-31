@@ -1,75 +1,77 @@
-# 🧭 Meta-RL Research Repository
+# 🔁 RL² — Recurrent Meta-Reinforcement Learning Agent
 
-Welcome to the Meta-RL Research Repository — a focused, hands-on exploration of the algorithms that teach agents how to **adapt, learn, and evolve** across tasks. This repository is built to understand the foundations, dynamics, and nuances of **Meta-Reinforcement Learning** (Meta-RL), with full-code implementations from scratch in PyTorch.
-
----
-
-## 🌱 What This Repository Contains
-
-This repo is structured around three key categories of Meta-RL:
-
-1. **Gradient-Based Meta-RL**  
-   - Algorithms like MAML, Reptile, Meta-SGD that adapt by inner-loop gradient updates.
-
-2. **Contextual & Memory-Based Meta-RL**  
-   - Algorithms like R² and PEARL that use memory or latent inference for fast adaptation.
-
-3. **Population-Based Meta-RL**  
-   - Evolution-inspired agents that evolve over distributions of tasks.
-
-Each branch of this repo explores one algorithm deeply, including:
-- Custom PyTorch implementations.
-- Clean Jupyter notebooks for visualizing the training dynamics.
-- Meta episode runners and meta replay buffers.
-- Detailed README files to explain how and why things work.
+This branch contains a clean PyTorch implementation of **RL² (Reinforcement Learning Squared)** — a memory-based meta-reinforcement learning algorithm that learns to adapt to new tasks using a recurrent policy.
 
 ---
 
-## 🧩 Why This Repository Exists
+## 📚 What is RL²?
 
-Modern reinforcement learning often overfits to static tasks. Meta-RL teaches us **how agents can generalize** across multiple tasks and environments.  
-Through building these algorithms from scratch, we aim to deeply understand:
-- The role of **hidden states and recurrence** in adaptation.
-- The structure of **task distributions**.
-- The implementation of **meta-learning runners** and buffers.
-- How to properly use **masking, padding**, and **sequence-aware architectures**.
+RL² is a meta-learning algorithm introduced in the paper:
 
-This repo is **not a library**, but a **research playground**. Every implementation here is:
-- From scratch.
-- Debuggable and educational.
-- Designed to be extended, modified, and studied.
+> **"RL²: Fast Reinforcement Learning via Slow Reinforcement Learning"**
 
-## 🌟 How to Use This Repo
+> *Yan Duan et al., 2016* — [arXiv:1611.02779](https://arxiv.org/abs/1611.02779)
 
-- Clone the repo.
-- Checkout any specific algorithm branch (e.g. `r2`, `pearl`, `maml`).
-- Read the local README.
-- Run the Jupyter notebook or training script.
-- Modify, visualize, and learn.
+It trains an **RNN-based policy** that can adapt to different tasks by processing entire trajectories of `(state, action, reward)` tuples.  
+This allows the agent to **learn how to learn**, by encoding experience into its hidden state — no explicit task embedding, no inner-loop gradient steps.
 
 ---
 
-## 🧭 Roadmap
+## 🧠 Why Use RL²?
 
-- [x] ✅ R² (Recurrent Meta-RL Agent)
-- [ ] ⏳ PEARL (Latent Variable Conditioning)
-- [ ] ⏳ MAML (Gradient-Based Fast Adaptation)
-- [ ] ⏳ Custom Meta-Environment Generators
-- [ ] ⏳ Visualization Suite
-
----
-
-## 🧑‍🔬 Who This Is For
-
-This repo is meant for:
-- Researchers
-- Aspiring RL engineers
-- Students building project portfolios
-- Anyone obsessed with making agents *learn how to learn*
+- **Online adaptation**: Handles changing dynamics or goals mid-episode.
+  
+- **Recurrent memory**: Learns task-specific behavior via hidden states.
+  
+- **No gradient-based inner loop**: Simpler and more stable than MAML-like methods.
+  
+- Great for **meta-environments** with multiple task distributions.
 
 ---
 
-## 📜 License
+## 🛠️ What's Implemented Here
 
-MIT License. Use, study, modify freely. If you build on it, we’d love a mention or pull request!
+- ✅ **Recurrent Policy** using separate LSTM layers for actor and critic.
+- ✅ **Feature extractor** for `(state, prev_action, prev_reward)` tuples.
+- ✅ **Tanh-squashed Gaussian policy** with log-prob correction.
+- ✅ **Value function head** for critic with shared input processing.
+- ✅ **Meta episode runner** for looping over tasks and episodes.
+- ✅ **Meta replay buffer** (episode-level) with support for:
+  - Padding
+  - Masking
+  - Variable-length sequences
+- ✅ **Hidden state initialization/reset per episode**
+- ✅ **Training script** with policy loss, value loss, and reward logging.
+- ✅ **TensorBoard integration**
+- ✅ **Notebook** with visualizations and explanations
 
+---
+
+This branch logs the following metrics to TensorBoard:
+
+policy_loss: Actor's objective
+
+<img width="800" height="500" alt="Figure_1" src="https://github.com/user-attachments/assets/2df84e24-c55a-4582-bdd5-c6ecdf82c3d6" />
+
+
+value_loss: Critic MSE
+
+<img width="800" height="500" alt="Figure_2" src="https://github.com/user-attachments/assets/97bc8745-b417-44da-b6d4-a89c4c98055f" />
+
+### 🧠 What You'll Learn by Studying This
+
+Why hidden states are central to online task adaptation.
+
+How meta-level runners and buffers differ from standard RL.
+
+How to handle sequence padding, masking, and variable episode lengths.
+
+The simplicity and power of recurrent adaptation in multi-task environments.
+
+### 📎 Citation & Credit
+
+Implementation inspired by:
+
+**RL² (Duan et al. 2016)**
+
+**Meta-RL benchmarks**

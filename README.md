@@ -1,76 +1,80 @@
-# 🧭 Meta-RL Research Repository
+# **🦎 Reptile: Meta-Learning from Scratch**
 
-Welcome to the Meta-RL Research Repository — a focused, hands-on exploration of the algorithms that teach agents how to **adapt, learn, and evolve** across tasks. This repository is built to understand the foundations, dynamics, and nuances of **Meta-Reinforcement Learning** (Meta-RL), with full-code implementations from scratch in PyTorch.
+Welcome to the Reptile implementation — the elegant, gradient-based meta-learning algorithm that’s all about fast adaptation through simple weight updates. This repo explores how agents can quickly learn new tasks by gently nudging their parameters closer to optimal solutions across a distribution of tasks.
 
----
+## **🌱 What’s Inside This Reptile Branch?**
 
-## 🌱 What This Repository Contains
+Full PyTorch implementation of Reptile from the ground up
 
-This repo is structured around three key categories of Meta-RL:
+Clean, well-documented Jupyter notebooks to visualize training and adaptation dynamics
 
-1. **Gradient-Based Meta-RL**  
-   - Algorithms like MAML, Reptile, Meta-SGD that adapt by inner-loop gradient updates.
+Meta-episode runners and replay buffers tailored for Reptile’s inner-loop updates
 
-2. **Contextual & Memory-Based Meta-RL**  
-   - Algorithms like R² and PEARL that use memory or latent inference for fast adaptation.
+Detailed explanations on how Reptile performs meta-updates without expensive second-order gradients
 
-3. **Population-Based Meta-RL**  
-   - Evolution-inspired agents that evolve over distributions of tasks.
+## **🧩 Why Reptile?**
 
-Each branch of this repo explores one algorithm deeply, including:
-- Custom PyTorch implementations.
-- Clean Jupyter notebooks for visualizing the training dynamics.
-- Meta episode runners and meta replay buffers.
-- Detailed README files to explain how and why things work.
+Forget complex second-order derivatives — Reptile keeps it simple and elegant by performing meta-learning via repeated SGD on sampled tasks, then moving the initial parameters towards the adapted ones. This approach:
 
----
+Is computationally efficient
 
-## 🧩 Why This Repository Exists
+Scales well to diverse task distributions
 
-Modern reinforcement learning often overfits to static tasks. Meta-RL teaches us **how agents can generalize** across multiple tasks and environments.  
-Through building these algorithms from scratch, we aim to deeply understand:
-- The role of **hidden states and recurrence** in adaptation.
-- The structure of **task distributions**.
-- The implementation of **meta-learning runners** and buffers.
-- How to properly use **masking, padding**, and **sequence-aware architectures**.
+Encourages rapid adaptation on unseen tasks
 
-This repo is **not a library**, but a **research playground**. Every implementation here is:
-- From scratch.
-- Debuggable and educational.
-- Designed to be extended, modified, and studied.
+Perfect for anyone wanting a straightforward yet powerful meta-learning algorithm that packs a punch.
 
-## 🌟 How to Use This Repo
+## **🌟 How to Run and Experiment**
 
-- Clone the repo.
-- Checkout any specific algorithm branch (e.g. `r2`, `pearl`, `maml`).
-- Read the local README.
-- Run the Jupyter notebook or training script.
-- Modify, visualize, and learn.
+Clone the repo and switch to the reptile branch
 
----
+Read the local README and comments in the Jupyter notebook
 
-## 🧭 Roadmap
+Run the training notebooks to see Reptile learn across multiple tasks
 
-- [x] ✅ R² (Recurrent Meta-RL Agent)
-- [ ] ⏳ PEARL (Latent Variable Conditioning)
-- [x] ✅ FOMAML (Gradient-Based Fast Adaptation)
-- [x] ✅ Reptile
-- [ ] ⏳ Custom Meta-Environment Generators
-- [ ] ⏳ Visualization Suite
+Tweak hyperparameters like meta learning rate, inner steps, and batch size to experiment with speed and stability of adaptation
 
----
+Visualize the agent’s meta-adaptation curve and loss landscapes
 
-## 🧑‍🔬 Who This Is For
+## **🧭 Roadmap for Reptile Branch**
 
-This repo is meant for:
-- Researchers
-- Aspiring RL engineers
-- Students building project portfolios
-- Anyone obsessed with making agents *learn how to learn*
+✅ Core Reptile Algorithm Implementation
 
----
+✅ Meta Episode Runners & Replay Buffers
 
-## 📜 License
+⏳ Advanced Scheduling and Learning Rate Strategies
 
-MIT License. Use, study, modify freely. If you build on it, we’d love a mention or pull request!
+⏳ Integration with Custom Meta-Environments
+
+⏳ Visualization Tools for Meta-Learning Dynamics
+
+### **🧑‍🔬 Who Should Dive In?**
+
+Meta-RL researchers exploring gradient-based methods
+
+Students eager to understand the mechanics of fast adaptation
+
+Practitioners looking for efficient meta-learning baselines
+
+Curious souls obsessed with how machines learn to learn
+
+### **Losses Curve**
+
+#### **Policy Loss**
+
+<img width="800" height="501" alt="Policy_Figure_1" src="https://github.com/user-attachments/assets/42f8c286-1919-4c0a-ace2-a1d0675575f0" />
+
+#### **Critic Loss**
+
+<img width="800" height="500" alt="Figure_1" src="https://github.com/user-attachments/assets/9eaa3a41-bac7-4caf-97f4-3c942503e30d" />
+
+#### **Agent Loss**
+
+
+<img width="800" height="500" alt="Agent_Figure_1" src="https://github.com/user-attachments/assets/e02aca28-e10b-488b-9aa6-163d10adc490" />
+
+
+### **📜 License**
+
+MIT License — fork, tweak, and build on this freely. Just drop a ⭐ or PR if you find this useful!
 

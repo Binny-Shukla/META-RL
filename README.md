@@ -53,7 +53,8 @@ This repo is **not a library**, but a **research playground**. Every implementat
 
 - [x] ✅ R² (Recurrent Meta-RL Agent)
 - [ ] ⏳ PEARL (Latent Variable Conditioning)
-- [ ] ⏳ MAML (Gradient-Based Fast Adaptation)
+- [x] ✅ FOMAML (Gradient-Based Fast Adaptation)
+- [x] ✅ Reptile
 - [ ] ⏳ Custom Meta-Environment Generators
 - [ ] ⏳ Visualization Suite
 

@@ -1,76 +1,67 @@
-# 🧭 Meta-RL Research Repository
+# **🚀 R2D2: Recurrent Experience Replay in Distributed Reinforcement Learning**
 
-Welcome to the Meta-RL Research Repository — a focused, hands-on exploration of the algorithms that teach agents how to **adapt, learn, and evolve** across tasks. This repository is built to understand the foundations, dynamics, and nuances of **Meta-Reinforcement Learning** (Meta-RL), with full-code implementations from scratch in PyTorch.
+R2D2 is not just another RL agent — it's a deep dive into memory 🧠, a blend of recurrence and replay that lets your agent learn from long, tangled sequences of experience, conquering partial observability with a sharp mind and a steady hand.
 
----
+# **🔍 What is R2D2 and How Powerful is It?**
 
-## 🌱 What This Repository Contains
+R2D2 revolutionizes reinforcement learning by combining recurrent neural networks with experience replay, enabling agents to remember the past and learn from it efficiently. This approach shines brightest in environments where the present moment alone isn’t enough — where history whispers secrets only memory can reveal. 🌌
 
-This repo is structured around three key categories of Meta-RL:
+It scales across distributed architectures, blending stability and speed ⚡, and tackles complex tasks that stump simpler agents. R2D2 is the guardian of temporal dependencies, unlocking horizons where pure feedforward models falter. 🛡️
 
-1. **Gradient-Based Meta-RL**  
-   - Algorithms like MAML, Reptile, Meta-SGD that adapt by inner-loop gradient updates.
+# **🎯 A Touch of PPO with R2D2 for Continuous Control**
 
-2. **Contextual & Memory-Based Meta-RL**  
-   - Algorithms like R² and PEARL that use memory or latent inference for fast adaptation.
+This implementation spices up classic R2D2 with clipped Proximal Policy Optimization (PPO) style updates — elegantly marrying on-policy stability with off-policy efficiency. Designed for continuous action spaces, it harnesses stochastic policies with Gaussian distributions and recurrent LSTMs, carving a smooth path through the vast continuous action landscapes. 🌊
 
-3. **Population-Based Meta-RL**  
-   - Evolution-inspired agents that evolve over distributions of tasks.
+# **📦 What’s Inside?**
 
-Each branch of this repo explores one algorithm deeply, including:
-- Custom PyTorch implementations.
-- Clean Jupyter notebooks for visualizing the training dynamics.
-- Meta episode runners and meta replay buffers.
-- Detailed README files to explain how and why things work.
+      PyTorch Implementation of R2D2’s actor-critic recurrent networks with LSTMs. 🔥
+      
+      Sequence Sampling & Burn-in Logic to warm up hidden states and ensure training stability. ♨️
+      
+      GAE-based PPO Loss functions tailored for recurrent policies. 📈
+      
+      TensorBoard Integration for real-time visualization. 📊
+      
+      plot.py — handy plotting scripts to transform logs into insights. 🎨
+      
+      Ready-to-run Jupyter Notebook encapsulating full training and evaluation. 📝
 
----
+# **📉 Loss Graphs**
 
-## 🧩 Why This Repository Exists
+## **Policy Loss**
 
-Modern reinforcement learning often overfits to static tasks. Meta-RL teaches us **how agents can generalize** across multiple tasks and environments.  
-Through building these algorithms from scratch, we aim to deeply understand:
-- The role of **hidden states and recurrence** in adaptation.
-- The structure of **task distributions**.
-- The implementation of **meta-learning runners** and buffers.
-- How to properly use **masking, padding**, and **sequence-aware architectures**.
+<img width="800" height="500" alt="Policy loss" src="https://github.com/user-attachments/assets/cee5d5ae-e837-4a94-aeca-7e493011e9b6" />
 
-This repo is **not a library**, but a **research playground**. Every implementation here is:
-- From scratch.
-- Debuggable and educational.
-- Designed to be extended, modified, and studied.
+## **Value Loss**
 
-## 🌟 How to Use This Repo
+<img width="800" height="500" alt="Val loss" src="https://github.com/user-attachments/assets/2a16a3f2-3cf3-416f-8882-d2c4f14effa2" />
 
-- Clone the repo.
-- Checkout any specific algorithm branch (e.g. `r2`, `pearl`, `maml`).
-- Read the local README.
-- Run the Jupyter notebook or training script.
-- Modify, visualize, and learn.
+## **Agent Loss**
 
----
+<img width="800" height="500" alt="Agent loss" src="https://github.com/user-attachments/assets/ea3ec625-2f09-4e80-9783-b584711899e0" />
 
-## 🧭 Roadmap
 
-- [x] ✅ R² (Recurrent Meta-RL Agent)
-- [ ] ⏳ PEARL (Latent Variable Conditioning)
-- [x] ✅ FOMAML (Gradient-Based Fast Adaptation)
-- [x] ✅ Reptile
-- [ ] ⏳ Custom Meta-Environment Generators
-- [ ] ⏳ Visualization Suite
+# **📝 Notes**
 
----
 
-## 🧑‍🔬 Who This Is For
+      Burn-in sequences are crucial to warm up the LSTM hidden states, preventing cold-start shocks. 🔥
+      
+      Orthogonal initialization with zero biases stabilizes early training epochs. 🧩
+      
+      This implementation is a fusion — leveraging the best of recurrent replay and PPO clipping, tuned for meta-RL challenges. ⚙️
+      
+      Expect some volatility early on; it’s the sign of learning sharpening its claws. 🐾
 
-This repo is meant for:
-- Researchers
-- Aspiring RL engineers
-- Students building project portfolios
-- Anyone obsessed with making agents *learn how to learn*
+# **📚 References**
 
----
+R2D2 Paper (Kapturowski et al., 2018)
 
-## 📜 License
+PPO Paper (Schulman et al., 2017)
 
-MIT License. Use, study, modify freely. If you build on it, we’d love a mention or pull request!
+## **⚖️ License**
 
+This project is licensed under the MIT License — free and open, like the curiosity that fuels us. ✨
+
+### **🔮 Next Model in Line**
+
+Ready to dive deeper? The next frontier is ANIL or LEAP — stay tuned for the next evolution in our meta-RL odyssey. 🚀

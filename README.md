@@ -1,76 +1,62 @@
-# 🧭 Meta-RL Research Repository
+# **🚀 ANIL: Almost No Inner Loop for Meta-Learning**
 
-Welcome to the Meta-RL Research Repository — a focused, hands-on exploration of the algorithms that teach agents how to **adapt, learn, and evolve** across tasks. This repository is built to understand the foundations, dynamics, and nuances of **Meta-Reinforcement Learning** (Meta-RL), with full-code implementations from scratch in PyTorch.
+ANIL isn’t here to waste time — it’s meta-learning stripped to its essentials, a lightning-fast adaptation machine ⚡.
 
----
+It skips the heavy inner-loop gymnastics of MAML, focusing all updates on the task-specific head while freezing the shared body. The result? Blazing adaptation speed, fewer moving parts, and stability that makes training a joy instead of a wrestling match. 🏹
 
-## 🌱 What This Repository Contains
+# **🔍 What is ANIL and Why Does It Matter?**
 
-This repo is structured around three key categories of Meta-RL:
+In the meta-learning family tree, ANIL is the pragmatic cousin of MAML — leaner, cleaner, and just as smart.
+By leaving the feature extractor untouched during inner-loop updates, it reduces computational overhead and avoids the catastrophic forgetting that can plague full MAML.
 
-1. **Gradient-Based Meta-RL**  
-   - Algorithms like MAML, Reptile, Meta-SGD that adapt by inner-loop gradient updates.
+It thrives in few-shot settings, where quick head updates are all it takes to pivot from one task to another. Perfect for domains where feature reuse is king and task-specific adaptation is the only moving piece. 👑
 
-2. **Contextual & Memory-Based Meta-RL**  
-   - Algorithms like R² and PEARL that use memory or latent inference for fast adaptation.
+# **🎯 ANIL for Meta-RL**
 
-3. **Population-Based Meta-RL**  
-   - Evolution-inspired agents that evolve over distributions of tasks.
+This implementation focuses on meta-reinforcement learning — training a shared backbone across tasks, then rapidly adapting the head for new ones.
+Whether your environment is continuous or discrete, ANIL delivers consistent adaptation without dragging your GPU through endless gradient steps.
 
-Each branch of this repo explores one algorithm deeply, including:
-- Custom PyTorch implementations.
-- Clean Jupyter notebooks for visualizing the training dynamics.
-- Meta episode runners and meta replay buffers.
-- Detailed README files to explain how and why things work.
+We marry ANIL’s minimalism with policy-gradient methods, integrating Generalized Advantage Estimation (GAE) for variance reduction and stability. The result? A lean, mean meta-learner. 🦾
 
----
+## **📦 What’s Inside?**
 
-## 🧩 Why This Repository Exists
+      PyTorch Implementation of ANIL’s meta-learning loop, tailored for reinforcement learning. 🔥
+      
+      Inner-Loop Head Updates Only — freeze the backbone, adapt the task-specific head at lightning speed. ⚡
+      
+      Meta-Buffer Management for efficient storage of multi-task trajectories. 📦
+      
+      TensorBoard Integration to watch your meta-learner grow wise in real time. 📊
+      
+      Evaluation Scripts to measure adaptation performance after just a few steps. 📝
 
-Modern reinforcement learning often overfits to static tasks. Meta-RL teaches us **how agents can generalize** across multiple tasks and environments.  
-Through building these algorithms from scratch, we aim to deeply understand:
-- The role of **hidden states and recurrence** in adaptation.
-- The structure of **task distributions**.
-- The implementation of **meta-learning runners** and buffers.
-- How to properly use **masking, padding**, and **sequence-aware architectures**.
 
-This repo is **not a library**, but a **research playground**. Every implementation here is:
-- From scratch.
-- Debuggable and educational.
-- Designed to be extended, modified, and studied.
+## **📉 Loss Graphs**
 
-## 🌟 How to Use This Repo
+### **Policy Loss — watches your inner-loop head get sharper.**
 
-- Clone the repo.
-- Checkout any specific algorithm branch (e.g. `r2`, `pearl`, `maml`).
-- Read the local README.
-- Run the Jupyter notebook or training script.
-- Modify, visualize, and learn.
+<img width="800" height="500" alt="Anil" src="https://github.com/user-attachments/assets/a9b409e4-caa5-461d-8b14-a9aa92f18b31" />
 
----
 
-## 🧭 Roadmap
+## **📝 Notes**
 
-- [x] ✅ R² (Recurrent Meta-RL Agent)
-- [ ] ⏳ PEARL (Latent Variable Conditioning)
-- [x] ✅ FOMAML (Gradient-Based Fast Adaptation)
-- [x] ✅ Reptile
-- [ ] ⏳ Custom Meta-Environment Generators
-- [ ] ⏳ Visualization Suite
+      The inner learning rate is critical — too high and you’ll destabilize; too low and adaptation slows to a crawl.
+      
+      Keep meta-batch size balanced — enough variety for generalization, not so big it breaks memory.
+      
+      Expect fast convergence in the head layers, while the backbone holds steady like a mountain. 🏔️
 
----
+## **📚 References**
 
-## 🧑‍🔬 Who This Is For
+ANIL Paper: Raghu et al., 2020 — Rapid Learning or Feature Reuse? Towards Understanding the Effectiveness of MAML
 
-This repo is meant for:
-- Researchers
-- Aspiring RL engineers
-- Students building project portfolios
-- Anyone obsessed with making agents *learn how to learn*
+MAML Paper: Finn et al., 2017 — Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
 
----
+### **⚖️ License**
 
-## 📜 License
+This project is licensed under the MIT License — free and open for exploration, like meta-learning’s ever-shifting landscapes. ✨
 
-MIT License. Use, study, modify freely. If you build on it, we’d love a mention or pull request!
+### **🔮 Next Model in Line**
+
+From here, the road stretches towards LEAP or Meta-World ANIL, tackling even richer task distributions. The odyssey continues. 🚀
 

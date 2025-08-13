@@ -57,6 +57,7 @@ This repo is **not a library**, but a **research playground**. Every implementat
 - [x] ✅ Reptile
 - [x] ✅ R2D2
 - [x] ✅ Anil
+- [x] ✅ CTX
 - [ ] ⏳ Custom Meta-Environment Generators
 - [ ] ⏳ Visualization Suite
 

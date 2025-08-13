@@ -52,9 +52,11 @@ This repo is **not a library**, but a **research playground**. Every implementat
 ## 🧭 Roadmap
 
 - [x] ✅ R² (Recurrent Meta-RL Agent)
-- [ ] ⏳ PEARL (Latent Variable Conditioning)
+- [x] ✅ PEARL (Latent Variable Conditioning)
 - [x] ✅ FOMAML (Gradient-Based Fast Adaptation)
 - [x] ✅ Reptile
+- [x] ✅ R2D2
+- [x] ✅ Anil
 - [ ] ⏳ Custom Meta-Environment Generators
 - [ ] ⏳ Visualization Suite
 
